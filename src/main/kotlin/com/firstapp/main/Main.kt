@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 open class Main {
 	
 	fun test() {
-		what(Main::class)
+		//what(Main::class)
 		var intArray : IntArray = intArrayOf(1,2,3)
 		val asc:Array<String> = Array(5, { i -> (i * i).toString() })
 		JavaMain.testArray(intArray)
@@ -23,16 +23,16 @@ open class Main {
 		JavaMain.testClass(Main::class)
 	}
 		
-	fun what(one : Any) = println("newone")
+/*	fun what(one : Any) = println("newone")
 	
 	fun what2(obj : java.lang.Object){
 		println("wjhat2")
-	}
+	}*/
 }
 
 fun main(args : Array<String>) {
 	//var obj = Main::class.java
 	//if(obj is java.lang.Object)
 	//fuck!!从网上找到了这个问题的解决方式，可变参数类型如果想传递一个数组就用*符号
-	SpringApplication.run(Main::class.java, *args);
+	SpringApplication.run(Main::class.java, *args)
 }
