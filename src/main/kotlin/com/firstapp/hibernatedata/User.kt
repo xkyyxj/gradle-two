@@ -3,7 +3,7 @@ package com.firstapp.data
 import javax.persistence.Table
 import org.springframework.stereotype.Component
 
-@Table(name="Users")
+@Table(name="users")
 class User {
 	
 	var id : Long = 0

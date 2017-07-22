@@ -2,11 +2,16 @@ package com.firstapp.dataaccess
 
 interface Repository {
 	
-	fun insert(obj : Any) : Any
+	companion object OPERATION_STATUS{
+		const val SUCCESS = 1
+		const val FAILED = 2
+	}
 	
-	fun delete(obj : Any) : Any
+	fun insert(obj : Any) : Int
 	
-	fun update(obj : Any) : Any
+	fun delete(obj : Any) : Int
 	
-	fun query(obj : Any) : Any
+	fun update(obj : Any) : Int
+	
+	fun query(obj : Any) : Int
 }

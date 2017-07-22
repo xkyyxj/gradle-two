@@ -2,6 +2,8 @@ package com.main.java;
 
 public class JavaMain {
 	
+	final static String what123 = null;
+	
 	public static void testArray(int[] what) {
 		if(what.length > 0) {
 			System.out.println("one");

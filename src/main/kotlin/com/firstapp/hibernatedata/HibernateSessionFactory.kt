@@ -1,8 +1,11 @@
 package com.firstapp.data
 
+import javax.annotation.PreDestroy
+
 import org.hibernate.Session
 import org.hibernate.SessionFactory
 import org.hibernate.boot.MetadataSources
+import org.hibernate.boot.registry.StandardServiceRegistry
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder
 
 import org.springframework.stereotype.Component
@@ -14,10 +17,12 @@ class HibernateSessionFactory {
 		configure()
 	}
 	
+	lateinit var standardRegistry : StandardServiceRegistry
+	
 	lateinit var sessionFactory : SessionFactory
 	
 	private fun configure(){
-		var standardRegistry = StandardServiceRegistryBuilder()
+		standardRegistry = StandardServiceRegistryBuilder()
 				.configure( "hibernate.cfg.xml" ).build()
 		var metadata = MetadataSources(standardRegistry).getMetadataBuilder().build()
 		sessionFactory = metadata.getSessionFactoryBuilder().build()
@@ -25,8 +30,9 @@ class HibernateSessionFactory {
 	
 	fun getSession() : Session = sessionFactory.openSession()
 	
+	@PreDestroy
 	fun destroy(){
-		
+		StandardServiceRegistryBuilder.destroy(standardRegistry)
 	}
 	
 }

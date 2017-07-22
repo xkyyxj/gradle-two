@@ -47,7 +47,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8"
     
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-reflect
-    //kotlin的反射机制jar包是独立的，所以没有加上这个jar包的话最一定会报错的
+    //kotlin的反射机制jar包是独立的，所以没有加上这个jar包的话一定会报错的
 	compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: "$kotlin_version"
     
     

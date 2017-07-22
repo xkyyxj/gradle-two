@@ -23,9 +23,9 @@ open class Server {
 	@Autowired
 	lateinit var repository : Repository
 	
-	@RequestMapping("/greeting")
+/*	@RequestMapping("/greeting")
 	open fun greeting(@RequestParam(value="name", defaultValue="World") name : String) : Greeting
-		= Greeting(count.incrementAndGet(),"world! $name")
+		= Greeting(count.incrementAndGet(),"world! $name")*/
 	
 	//µÇÂ¼
 	@RequestMapping("/login", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
@@ -36,8 +36,9 @@ open class Server {
 	
 	//×¢²á
 	@RequestMapping("/signup", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
-	open fun signup (@RequestBody signUpUser : User) {
+	open fun signup (@RequestBody signUpUser : User) : Int {
 		repository.insert(signUpUser)
+		return Repository.SUCCESS;
 	}
 
 }
