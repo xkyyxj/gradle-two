@@ -1,10 +1,9 @@
-package com.firstapp.controller
+package com.firstapp.service
 
 import org.springframework.context.annotation.*;
-import com.firstapp.data.HibernateSessionFactory
 
 @Configuration
-@ComponentScan(basePackages = arrayOf("com.firstapp.hibernatedata"))
+@ComponentScan(basePackages = arrayOf("com.firstapp.hibernatedao","com.firstapp.serviceimpl"))
 open class BeanConfiguration {
 	
 	/*@Bean

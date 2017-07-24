@@ -1,10 +1,10 @@
-package com.firstapp.dataaccess
+package com.firstapp.dao
 
 interface Repository {
 	
 	companion object OPERATION_STATUS{
-		const val SUCCESS = 1
-		const val FAILED = 2
+		const val SUCCESS = 0
+		const val FAILED = 1
 	}
 	
 	fun insert(obj : Any) : Int

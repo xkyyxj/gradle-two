@@ -1,4 +1,4 @@
-package com.firstapp.data
+package com.firstapp.hibernatedao
 
 import javax.annotation.PreDestroy
 

@@ -1,11 +1,13 @@
-package com.firstapp.data
+package com.firstapp.hibernatedao
 
-import com.firstapp.dataaccess.Repository
+import com.firstapp.dao.Repository
 
 import org.hibernate.Transaction
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 
+@Component
 open class HibernateDataRepository : Repository{
 	
 	@Autowired

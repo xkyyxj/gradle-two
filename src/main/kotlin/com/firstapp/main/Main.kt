@@ -3,8 +3,17 @@ package com.firstapp.main
 import com.main.java.JavaMain
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.context.annotation.Import
 
-@SpringBootApplication
+import org.springframework.boot.SpringBootConfiguration
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
+import org.springframework.context.annotation.ComponentScan
+
+//@SpringBootApplication
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@Import(com.firstapp.service.BeanConfiguration::class)
+@ComponentScan(basePackageClasses = arrayOf(Server::class))
 open class Main {
 	
 	fun test() {

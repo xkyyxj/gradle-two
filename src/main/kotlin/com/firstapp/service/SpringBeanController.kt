@@ -8,7 +8,7 @@ class SpringBeanController {
 	val applicationContext : ApplicationContext
 	
 	init{
-		applicationContext = AnnotationConfigApplicationContext(com.firstapp.controller.BeanConfiguration::class.java)
+		applicationContext = AnnotationConfigApplicationContext(com.firstapp.service.BeanConfiguration::class.java)
 	}
 	
 	fun getBean(beanName : String) = applicationContext.getBean(beanName)
