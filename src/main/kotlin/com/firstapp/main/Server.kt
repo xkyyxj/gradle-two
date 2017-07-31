@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import net.minidev.json.JSONObject
+
 import com.firstapp.controller.SpringBeanController
 import com.firstapp.entity.User
 import com.firstapp.service.UserInterface
+import com.firstapp.service.ErrorInfo
 
 @RestController
 open class Server {
@@ -26,15 +29,23 @@ open class Server {
 	
 	//µÇÂ¼
 	@RequestMapping("/login", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
-	open fun login(@RequestBody loginUser : User) {
+	open fun login(@RequestBody loginUser : User) : ErrorInfo {
 		//var returnUser = repository.query(loginUser) as User
-		
+		return userOperation.login(loginUser)
 	}
 	
 	//×¢²á
-	@RequestMapping("/signup", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
-	open fun signup (@RequestBody signUpUser : User) : Int {
+	@RequestMapping("/signup", method = arrayOf(RequestMethod.GET,RequestMethod.POST), produces = arrayOf("application/json; charset=UTF-8"))
+	open fun signup (@RequestBody signUpUser : User) : ErrorInfo {
 		return userOperation.signUp(signUpUser)
+		//returnJSON.put("userID",)
+		
+	}
+	
+	@RequestMapping("/insertconsumeinfo", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
+	open fun insertConsumeInfo(consumeInfo : String) : String {
+		//var returnUser = repository.query(loginUser) as User
+		return ""
 	}
 
 }

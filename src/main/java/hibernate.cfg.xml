@@ -21,7 +21,5 @@
         <!--<property name="hibernate.cache.use_query_cache">true</property>-->
         
         <mapping class="com.firstapp.entity.User" />
-        <mapping class="com.firstapp.entity.ConsumeContent" />
-        <mapping class="com.firstapp.entity.ConsumeType" />
     </session-factory>
 </hibernate-configuration>

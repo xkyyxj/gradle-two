@@ -9,8 +9,8 @@ interface UserInterface {
 		const val FAILED = 1
 	}
 	
-	fun signUp(signUpUser : User) : Int
+	fun signUp(signUpUser : User) : ErrorInfo
 	
-	fun login(loginUser : User) : Int
+	fun login(loginUser : User) : ErrorInfo
 	
 }

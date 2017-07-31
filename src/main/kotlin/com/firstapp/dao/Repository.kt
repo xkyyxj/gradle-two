@@ -1,5 +1,7 @@
 package com.firstapp.dao
 
+import kotlin.reflect.KClass
+
 interface Repository {
 	
 	companion object OPERATION_STATUS{
@@ -14,4 +16,6 @@ interface Repository {
 	fun update(obj : Any) : Int
 	
 	fun query(obj : Any) : Int
+	
+	fun query(sql : String, vararg parameters : Any, returnType : KClass<*>) : List<Any?>?
 }

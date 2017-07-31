@@ -1,5 +1,13 @@
 package com.main.java;
 
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import com.firstapp.hibernatedao.*;
+
 public class JavaMain {
 	
 	final static String what123 = null;
@@ -9,6 +17,10 @@ public class JavaMain {
 			System.out.println("one");
 		}
 		
+		HibernateSessionFactory re = new HibernateSessionFactory();
+		Session session = re.getSession();
+		Query tempQuery = session.createQuery("");
+		List<?> list = tempQuery.list();
 	}
 	
 	public static void ha123(String[] ra) {
@@ -31,6 +43,27 @@ public class JavaMain {
 	
 	public static void testClass(Object obj) {
 		System.out.println(obj);
+	}
+	
+	public static void main(String[] args) {
+		HibernateSF sf = new HibernateSF();
+		Session session = sf.getSession();
+		Transaction tr = null;
+		try {
+			tr = session.beginTransaction();
+			Query temp = session.createQuery("select user.name from User user where user.name=?");
+			temp.setParameter(0, "123123");
+			List<String> tempList = temp.list();
+			tr.commit();
+		}
+		catch(Exception e){
+			if(tr != null) {
+				tr.rollback();
+			}
+		}
+		finally {
+			session.close();
+		}
 	}
 
 }
