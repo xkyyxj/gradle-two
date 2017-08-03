@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import net.minidev.json.JSONObject
-
 import com.firstapp.controller.SpringBeanController
 import com.firstapp.entity.User
 import com.firstapp.service.UserInterface
