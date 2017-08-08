@@ -17,7 +17,7 @@
         <property name="hibernate.connection.password">123</property>
         <!--数据库连接池的大小-->   
         <property name="hibernate.connection.pool.size">20</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/firstapp</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/mydb</property>
         <!--<property name="hibernate.cache.use_query_cache">true</property>-->
         
         <mapping class="com.firstapp.entity.User" />

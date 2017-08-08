@@ -1,5 +1,7 @@
 package com.firstapp.entity
 
+import java.util.Date
+
 import javax.persistence.Table
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -19,5 +21,7 @@ class ConsumeType {
 	lateinit var name : String;
 	
 	var user_id : Long = 0
+	
+	lateinit var insert_time : Date
 	
 }

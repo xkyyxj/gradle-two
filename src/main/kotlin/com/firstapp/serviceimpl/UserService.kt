@@ -23,7 +23,7 @@ class UserService : UserInterface{
 		if(returnResult == null || returnResult.size == 0){
 			var currentTime = Date()
 			signUpUser.signuptime = currentTime
-			var operationStatus = repository.insert(signUpUser)
+			var (operationStatus, _) = repository.insert(signUpUser)
 			if(operationStatus == Repository.SUCCESS)
 				return ErrorInfo(UserInterface.SUCCESS,"SUCCESS",signUpUser.id,
 						signUpUser.name,signUpUser.password)

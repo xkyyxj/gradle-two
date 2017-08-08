@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.firstapp.controller.SpringBeanController
 import com.firstapp.entity.User
+import com.firstapp.entity.ConsumeType
 import com.firstapp.service.UserInterface
+import com.firstapp.service.MainService
 import com.firstapp.service.ErrorInfo
+import com.firstapp.service.CommonReturnInfo
 
 @RestController
 open class Server {
@@ -20,6 +23,9 @@ open class Server {
 	
 	@Autowired
 	lateinit var userOperation : UserInterface
+	
+	@Autowired
+	lateinit var mainService : MainService
 	
 /*	@RequestMapping("/greeting")
 	open fun greeting(@RequestParam(value="name", defaultValue="World") name : String) : Greeting
@@ -44,6 +50,18 @@ open class Server {
 	open fun insertConsumeInfo(consumeInfo : String) : String {
 		//var returnUser = repository.query(loginUser) as User
 		return ""
+	}
+	
+	@RequestMapping("/insertconsumetypeinfo", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
+	open fun insertConsumeTypeInfo(@RequestBody consumeTypeInfo : ConsumeType) : CommonReturnInfo {
+		//var returnUser = repository.query(loginUser) as User
+		return mainService.insertConsumeType(consumeTypeInfo)
+	}
+	
+	@RequestMapping("/requireTypeInfo", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
+	open fun requireTypeInfo(@RequestBody map : Map<String, Any>) : Array<ConsumeType>? {
+		//var returnUser = repository.query(loginUser) as User
+		return mainService.requireTypeInfo((map.get("userId") as Int).toLong())
 	}
 
 }
