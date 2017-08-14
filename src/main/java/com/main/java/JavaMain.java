@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.firstapp.hibernatedao.*;
 
@@ -17,6 +19,7 @@ public class JavaMain {
 			System.out.println("one");
 		}
 		
+		Logger logger = LoggerFactory.getLogger(JavaMain.class);
 		HibernateSessionFactory re = new HibernateSessionFactory();
 		Session session = re.getSession();
 		Query tempQuery = session.createQuery("");
@@ -46,7 +49,7 @@ public class JavaMain {
 	}
 	
 	public static void main(String[] args) {
-		HibernateSF sf = new HibernateSF();
+		/*HibernateSF sf = new HibernateSF();
 		Session session = sf.getSession();
 		Transaction tr = null;
 		try {
@@ -63,7 +66,10 @@ public class JavaMain {
 		}
 		finally {
 			session.close();
-		}
+		}*/
+		Logger log = LoggerFactory.getLogger(JavaMain.class);
+		System.out.println(log.getClass().getName());
+		log.warn("123123213");
 	}
 
 }

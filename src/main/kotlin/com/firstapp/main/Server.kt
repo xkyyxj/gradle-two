@@ -15,6 +15,7 @@ import com.firstapp.service.UserInterface
 import com.firstapp.service.MainService
 import com.firstapp.service.ErrorInfo
 import com.firstapp.service.CommonReturnInfo
+import com.firstapp.entity.ConsumeContent
 
 @RestController
 open class Server {
@@ -47,9 +48,9 @@ open class Server {
 	}
 	
 	@RequestMapping("/insertconsumeinfo", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
-	open fun insertConsumeInfo(consumeInfo : String) : String {
+	open fun insertConsumeInfo(consumeContent : ConsumeContent) : CommonReturnInfo {
 		//var returnUser = repository.query(loginUser) as User
-		return ""
+		return mainService.insertConsumeInfo(consumeContent)
 	}
 	
 	@RequestMapping("/insertconsumetypeinfo", method = arrayOf(RequestMethod.GET,RequestMethod.POST))
