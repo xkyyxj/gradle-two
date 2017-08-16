@@ -81,7 +81,7 @@ class MainServiceImpl : MainService{
 			return returnList.filterIsInstance(ConsumeType::class.java).toTypedArray()
 		}
 		
-		return null
+		return emptyArray<ConsumeType>()
 	}
 	
 }

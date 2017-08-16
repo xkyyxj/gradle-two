@@ -24,4 +24,6 @@ class User {
 	
 	lateinit var signuptime : Date
 	
+	lateinit var salt : String
+	
 }

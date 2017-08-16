@@ -22,5 +22,7 @@ class ConsumeContent {
 	
 	lateinit var consume_time : Date
 	
+	var consume_num : Float = 0f
+	
 	var consume_type_id : Long = 0
 }
